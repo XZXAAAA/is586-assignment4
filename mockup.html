@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Weather.gov Redesign — Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:#f0f4f8;min-height:100vh;}
+
+/* ── TOPBAR ── */
+.topbar{
+  background:#1a3a6b;
+  display:flex;align-items:center;gap:12px;
+  padding:10px 24px;
+}
+.topbar-logo{display:flex;align-items:center;gap:10px;}
+.topbar-logo .logo-circle{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,#4a90d9,#1a5fa8);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff;
+}
+.topbar-logo .logo-text{color:#fff;font-size:.85rem;font-weight:700;line-height:1.2;}
+.topbar-logo .logo-text span{display:block;font-size:.65rem;font-weight:400;opacity:.6;}
+.topbar-tabs{display:flex;gap:2px;margin-left:auto;}
+.topbar-tabs a{
+  color:rgba(255,255,255,.65);font-size:.78rem;font-weight:500;
+  padding:6px 12px;border-radius:6px;text-decoration:none;
+  transition:background .15s,color .15s;cursor:pointer;
+}
+.topbar-tabs a:hover,.topbar-tabs a.active{background:rgba(255,255,255,.12);color:#fff;}
+
+/* ── ALERT BANNER ── */
+.alert-banner{
+  background:linear-gradient(90deg,#b91c1c,#dc2626);
+  display:flex;align-items:center;gap:12px;
+  padding:10px 24px;
+}
+.alert-banner .alert-icon{
+  background:rgba(255,255,255,.2);border-radius:6px;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  font-size:14px;flex-shrink:0;
+}
+.alert-banner .alert-text{color:#fff;font-size:.82rem;font-weight:600;flex:1;}
+.alert-banner .alert-text span{font-weight:400;opacity:.85;}
+.alert-banner .alert-btn{
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);
+  color:#fff;font-size:.75rem;font-weight:600;padding:5px 12px;
+  border-radius:6px;cursor:pointer;white-space:nowrap;
+}
+
+/* ── MAIN LAYOUT ── */
+.main{display:flex;gap:20px;padding:20px 24px;max-width:1100px;margin:0 auto;}
+
+/* ── LEFT SIDEBAR ── */
+.sidebar{width:220px;flex-shrink:0;}
+.location-card{
+  background:#fff;border-radius:14px;padding:16px;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:14px;
+}
+.location-search{
+  display:flex;align-items:center;gap:8px;
+  background:#f0f4f8;border-radius:8px;padding:8px 12px;
+  margin-bottom:12px;
+}
+.location-search input{
+  border:none;background:transparent;font-size:.85rem;
+  font-family:'Inter',sans-serif;color:#1a1a2e;outline:none;flex:1;
+}
+.location-search .search-icon{color:#6b7280;font-size:14px;}
+.location-name{font-size:1.1rem;font-weight:700;color:#1a1a2e;margin-bottom:2px;}
+.location-sub{font-size:.75rem;color:#6b7280;margin-bottom:12px;}
+.current-temp{font-size:3rem;font-weight:800;color:#1a3a6b;line-height:1;}
+.current-desc{font-size:.85rem;color:#6b7280;margin-top:4px;margin-bottom:12px;}
+.current-meta{display:flex;flex-direction:column;gap:4px;}
+.meta-row{display:flex;justify-content:space-between;font-size:.78rem;}
+.meta-row .label{color:#9ca3af;}
+.meta-row .value{color:#374151;font-weight:500;}
+
+.nav-card{
+  background:#fff;border-radius:14px;padding:10px;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+.nav-item{
+  display:flex;align-items:center;gap:10px;padding:9px 10px;
+  border-radius:8px;cursor:pointer;transition:background .15s;
+  font-size:.83rem;color:#374151;font-weight:500;
+}
+.nav-item:hover{background:#f0f4f8;}
+.nav-item.active{background:#eff6ff;color:#1d4ed8;font-weight:600;}
+.nav-item .nav-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+}
+
+/* ── CONTENT ── */
+.content{flex:1;min-width:0;}
+
+/* TODAY CARD */
+.today-card{
+  background:#fff;border-radius:16px;padding:20px;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:16px;
+}
+.today-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.today-title{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b7280;}
+.today-tabs{display:flex;gap:4px;}
+.today-tab{
+  font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:20px;
+  cursor:pointer;color:#6b7280;background:#f9fafb;border:1px solid #e5e7eb;
+}
+.today-tab.active{background:#1d4ed8;color:#fff;border-color:#1d4ed8;}
+
+.hourly-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;}
+.hourly-strip::-webkit-scrollbar{height:4px;}
+.hourly-strip::-webkit-scrollbar-track{background:#f1f5f9;border-radius:2px;}
+.hourly-strip::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px;}
+.hour-item{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  background:#f8fafc;border-radius:10px;padding:10px 12px;
+  min-width:60px;flex-shrink:0;border:1px solid #e5e7eb;
+}
+.hour-item.now{background:#eff6ff;border-color:#bfdbfe;}
+.hour-time{font-size:.7rem;color:#6b7280;font-weight:500;}
+.hour-time.now-label{color:#1d4ed8;font-weight:700;}
+.hour-icon{font-size:1.3rem;}
+.hour-temp{font-size:.88rem;font-weight:700;color:#1a1a2e;}
+.hour-precip{font-size:.68rem;color:#3b82f6;font-weight:600;}
+
+/* 7-DAY */
+.week-card{
+  background:#fff;border-radius:16px;padding:20px;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:16px;
+}
+.week-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.week-title{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b7280;}
+.week-grid{display:flex;flex-direction:column;gap:6px;}
+.day-row{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 12px;border-radius:10px;
+  transition:background .15s;cursor:pointer;
+}
+.day-row:hover{background:#f8fafc;}
+.day-row.weekend{background:#eff6ff;border:1px solid #dbeafe;}
+.day-row.weekend:hover{background:#dbeafe;}
+.day-row.today{background:#f0fdf4;border:1px solid #bbf7d0;}
+.day-name{font-size:.85rem;font-weight:600;color:#374151;width:90px;flex-shrink:0;}
+.day-name .day-sub{font-size:.7rem;color:#9ca3af;font-weight:400;}
+.day-icon{font-size:1.4rem;width:32px;text-align:center;flex-shrink:0;}
+.day-desc{font-size:.78rem;color:#6b7280;flex:1;}
+.day-precip{font-size:.75rem;color:#3b82f6;font-weight:600;width:36px;text-align:center;}
+.day-temps{display:flex;gap:8px;align-items:center;flex-shrink:0;}
+.temp-high{font-size:.9rem;font-weight:700;color:#1a1a2e;}
+.temp-low{font-size:.85rem;color:#9ca3af;}
+.weekend-badge{
+  font-size:.62rem;font-weight:700;background:#dbeafe;color:#1d4ed8;
+  padding:2px 6px;border-radius:4px;flex-shrink:0;
+}
+
+/* PRECIP CARD */
+.precip-card{
+  background:#fff;border-radius:16px;padding:20px;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+.precip-header{margin-bottom:14px;}
+.precip-title{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b7280;}
+.bar-chart{display:flex;align-items:flex-end;gap:6px;height:80px;}
+.bar-col{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;}
+.bar{
+  width:100%;border-radius:4px 4px 0 0;min-height:4px;
+  background:linear-gradient(to top,#1d4ed8,#60a5fa);
+  transition:height .3s;
+}
+.bar.weekend{background:linear-gradient(to top,#7c3aed,#a78bfa);}
+.bar-label{font-size:.65rem;color:#9ca3af;white-space:nowrap;}
+.bar-pct{font-size:.7rem;font-weight:700;color:#374151;}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-logo">
+    <div class="logo-circle">NW</div>
+    <div class="logo-text">
+      National Weather Service
+      <span>weather.gov — Redesigned</span>
+    </div>
+  </div>
+  <div class="topbar-tabs">
+    <a class="active">Forecast</a>
+    <a>Radar</a>
+    <a>Maps</a>
+    <a>Alerts</a>
+    <a>Safety</a>
+  </div>
+</div>
+
+<!-- ALERT BANNER -->
+<div class="alert-banner">
+  <div class="alert-icon">⚠️</div>
+  <div class="alert-text">
+    <strong>Severe Thunderstorm Watch</strong> &nbsp;
+    <span>Logan County, IL — through Monday 10 PM CDT · Damaging winds, large hail possible</span>
+  </div>
+  <div class="alert-btn">View Details →</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="location-card">
+      <div class="location-search">
+        <span class="search-icon">🔍</span>
+        <input value="Champaign, IL" readonly/>
+      </div>
+      <div class="location-name">Champaign, IL</div>
+      <div class="location-sub">Champaign County · Updated 4:36 PM CDT</div>
+      <div class="current-temp">76°</div>
+      <div class="current-desc">Partly Cloudy</div>
+      <div class="current-meta">
+        <div class="meta-row"><span class="label">Feels like</span><span class="value">79°</span></div>
+        <div class="meta-row"><span class="label">Humidity</span><span class="value">62%</span></div>
+        <div class="meta-row"><span class="label">Wind</span><span class="value">SSE 14 mph</span></div>
+        <div class="meta-row"><span class="label">Visibility</span><span class="value">10 mi</span></div>
+      </div>
+    </div>
+
+    <div class="nav-card">
+      <div class="nav-item active">
+        <div class="nav-dot" style="background:#10b981;"></div> Today's Forecast
+      </div>
+      <div class="nav-item">
+        <div class="nav-dot" style="background:#3b82f6;"></div> Hourly Details
+      </div>
+      <div class="nav-item">
+        <div class="nav-dot" style="background:#6366f1;"></div> 7-Day Forecast
+      </div>
+      <div class="nav-item">
+        <div class="nav-dot" style="background:#8b5cf6;"></div> Radar & Maps
+      </div>
+      <div class="nav-item">
+        <div class="nav-dot" style="background:#ef4444;"></div> Active Alerts (1)
+      </div>
+      <div class="nav-item">
+        <div class="nav-dot" style="background:#f59e0b;"></div> Air Quality
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- HOURLY -->
+    <div class="today-card">
+      <div class="today-header">
+        <div class="today-title">Today's Hourly Forecast</div>
+        <div class="today-tabs">
+          <div class="today-tab active">Temperature</div>
+          <div class="today-tab">Precipitation</div>
+          <div class="today-tab">Wind</div>
+        </div>
+      </div>
+      <div class="hourly-strip">
+        <div class="hour-item now">
+          <div class="hour-time now-label">Now</div>
+          <div class="hour-icon">⛅</div>
+          <div class="hour-temp">76°</div>
+          <div class="hour-precip">15%</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-time">5 PM</div>
+          <div class="hour-icon">⛅</div>
+          <div class="hour-temp">75°</div>
+          <div class="hour-precip">20%</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-time">6 PM</div>
+          <div class="hour-icon">🌦️</div>
+          <div class="hour-temp">72°</div>
+          <div class="hour-precip">35%</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-time">7 PM</div>
+          <div class="hour-icon">🌧️</div>
+          <div class="hour-temp">68°</div>
+          <div class="hour-precip">60%</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-time">8 PM</div>
+          <div class="hour-icon">⛈️</div>
+          <div class="hour-temp">65°</div>
+          <div class="hour-precip">80%</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-time">9 PM</div>
+          <div class="hour-icon">⛈️</div>
+          <div class="hour-temp">63°</div>
+          <div class="hour-precip">80%</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-time">10 PM</div>
+          <div class="hour-icon">🌧️</div>
+          <div class="hour-temp">61°</div>
+          <div class="hour-precip">65%</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-time">11 PM</div>
+          <div class="hour-icon">🌧️</div>
+          <div class="hour-temp">60°</div>
+          <div class="hour-precip">50%</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-time">12 AM</div>
+          <div class="hour-icon">🌦️</div>
+          <div class="hour-temp">59°</div>
+          <div class="hour-precip">40%</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-time">2 AM</div>
+          <div class="hour-icon">🌧️</div>
+          <div class="hour-temp">59°</div>
+          <div class="hour-precip">30%</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-time">5 AM</div>
+          <div class="hour-icon">🌦️</div>
+          <div class="hour-temp">59°</div>
+          <div class="hour-precip">30%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 DAY -->
+    <div class="week-card">
+      <div class="week-header">
+        <div class="week-title">7-Day Forecast</div>
+      </div>
+      <div class="week-grid">
+        <div class="day-row today">
+          <div class="day-name">Today <div class="day-sub">Apr 26</div></div>
+          <div class="day-icon">⛅</div>
+          <div class="day-desc">Partly cloudy, chance of late storms</div>
+          <div class="day-precip">30%</div>
+          <div class="day-temps"><span class="temp-high">76°</span><span class="temp-low">59°</span></div>
+        </div>
+        <div class="day-row">
+          <div class="day-name">Monday <div class="day-sub">Apr 27</div></div>
+          <div class="day-icon">⛈️</div>
+          <div class="day-desc">Showers and severe thunderstorms</div>
+          <div class="day-precip">80%</div>
+          <div class="day-temps"><span class="temp-high">76°</span><span class="temp-low">50°</span></div>
+        </div>
+        <div class="day-row">
+          <div class="day-name">Tuesday <div class="day-sub">Apr 28</div></div>
+          <div class="day-icon">🌤️</div>
+          <div class="day-desc">Partly sunny and breezy</div>
+          <div class="day-precip">10%</div>
+          <div class="day-temps"><span class="temp-high">66°</span><span class="temp-low">48°</span></div>
+        </div>
+        <div class="day-row">
+          <div class="day-name">Wednesday <div class="day-sub">Apr 29</div></div>
+          <div class="day-icon">☀️</div>
+          <div class="day-desc">Mostly sunny</div>
+          <div class="day-precip">0%</div>
+          <div class="day-temps"><span class="temp-high">64°</span><span class="temp-low">42°</span></div>
+        </div>
+        <div class="day-row">
+          <div class="day-name">Thursday <div class="day-sub">Apr 30</div></div>
+          <div class="day-icon">☀️</div>
+          <div class="day-desc">Mostly sunny</div>
+          <div class="day-precip">0%</div>
+          <div class="day-temps"><span class="temp-high">65°</span><span class="temp-low">43°</span></div>
+        </div>
+        <div class="day-row weekend">
+          <div class="day-name">Friday <div class="day-sub">May 1</div></div>
+          <div class="day-icon">☀️</div>
+          <div class="day-desc">Mostly sunny</div>
+          <div class="day-precip">0%</div>
+          <div class="day-temps"><span class="temp-high">63°</span><span class="temp-low">40°</span></div>
+          <div class="weekend-badge">WEEKEND</div>
+        </div>
+        <div class="day-row weekend">
+          <div class="day-name">Saturday <div class="day-sub">May 2</div></div>
+          <div class="day-icon">☀️</div>
+          <div class="day-desc">Sunny and pleasant</div>
+          <div class="day-precip">0%</div>
+          <div class="day-temps"><span class="temp-high">66°</span><span class="temp-low">45°</span></div>
+          <div class="weekend-badge">WEEKEND</div>
+        </div>
+        <div class="day-row weekend">
+          <div class="day-name">Sunday <div class="day-sub">May 3</div></div>
+          <div class="day-icon">🌤️</div>
+          <div class="day-desc">Mostly sunny</div>
+          <div class="day-precip">5%</div>
+          <div class="day-temps"><span class="temp-high">72°</span><span class="temp-low">50°</span></div>
+          <div class="weekend-badge">WEEKEND</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRECIP CHART -->
+    <div class="precip-card">
+      <div class="precip-header">
+        <div class="precip-title">Precipitation Probability — Next 7 Days</div>
+      </div>
+      <div class="bar-chart">
+        <div class="bar-col">
+          <div class="bar-pct">30%</div>
+          <div class="bar" style="height:30%"></div>
+          <div class="bar-label">Today</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-pct">80%</div>
+          <div class="bar" style="height:80%"></div>
+          <div class="bar-label">Mon</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-pct">40%</div>
+          <div class="bar" style="height:40%"></div>
+          <div class="bar-label">Tue</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-pct">0%</div>
+          <div class="bar" style="height:4%"></div>
+          <div class="bar-label">Wed</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-pct">0%</div>
+          <div class="bar" style="height:4%"></div>
+          <div class="bar-label">Thu</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-pct">0%</div>
+          <div class="bar weekend" style="height:4%"></div>
+          <div class="bar-label">Fri</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-pct">0%</div>
+          <div class="bar weekend" style="height:4%"></div>
+          <div class="bar-label">Sat</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-pct">5%</div>
+          <div class="bar weekend" style="height:5%"></div>
+          <div class="bar-label">Sun</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
