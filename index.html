@@ -913,6 +913,64 @@
     </div>
 
     <div class="card">
+      <h3><span class="dot" style="background:var(--c4e)"></span>How Findings Led to Design Decisions</h3>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:1rem;">Each change in the redesign traces back to something specific from the interface analysis (4B) or user research (4C). Here's the direct connection:</p>
+      <div class="t-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>What I Found</th>
+              <th>Source</th>
+              <th>What I Changed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Search returns wrong city without warning</td>
+              <td>4B — Heuristic #5 (Error Prevention)</td>
+              <td>Added location confirmation step before forecast loads</td>
+            </tr>
+            <tr>
+              <td>"Get Detailed Info" link looks like body text — roommate almost missed it</td>
+              <td>4C — User Research</td>
+              <td>Action links styled as distinct buttons, not inline text</td>
+            </tr>
+            <tr>
+              <td>Same forecast shown twice (graphic + text paragraphs)</td>
+              <td>4C — User Research ("Why is it listed twice?")</td>
+              <td>Graphic view shown by default; text version available on demand</td>
+            </tr>
+            <tr>
+              <td>Developer links (KML, XML) shown to all users — confusing</td>
+              <td>4B — Heuristic #8 (Minimalist Design) + 4C</td>
+              <td>Developer tools hidden by default, moved to collapsed section</td>
+            </tr>
+            <tr>
+              <td>Hourly forecast buried at bottom as a plain text link</td>
+              <td>4B — Heuristic #6 (Recognition over Recall) + 4C</td>
+              <td>Hourly moved to persistent left nav — always one click away</td>
+            </tr>
+            <tr>
+              <td>No way to tell Saturday from Wednesday in 7-day view</td>
+              <td>4B — Cognitive Walkthrough (Step 4)</td>
+              <td>Weekend days highlighted with a different background color</td>
+            </tr>
+            <tr>
+              <td>Severe weather alerts not visible without scrolling</td>
+              <td>4B — Heuristic #1 (Visibility of System Status)</td>
+              <td>Full-width alert banner pinned at top of page when active</td>
+            </tr>
+            <tr>
+              <td>No timestamp showing when forecast was last updated</td>
+              <td>4B — Heuristic #1 (Visibility of System Status)</td>
+              <td>Update time shown in location card, visible without scrolling</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
       <h3><span class="dot" style="background:var(--c4e)"></span>What I Was Trying to Fix</h3>
       <p>When I look at how people actually use Weather.gov, most of them just want to know two or three things: what's the weather now, what's it going to be this weekend, and is there anything dangerous coming. The current site doesn't really prioritize any of that — everything gets equal space on the page regardless of whether it's something a regular person cares about or a data export link for developers.</p>
       <p style="margin-top:.75rem;">My redesign tries to answer those common questions up front, and push the less common stuff (like technical charts and raw data links) out of the way. I didn't want to remove anything, just reorganize by what people are most likely to actually need.</p>
@@ -937,6 +995,56 @@
         <li style="margin-bottom:.5rem;"><strong>Government site constraints:</strong> Federal websites have to follow accessibility rules (Section 508) and often a design system called USWDS. Some of my visual choices might not be compatible with those — that would need more checking before this could go live.</li>
         <li><strong>Data freshness indicators:</strong> I wanted to show when the forecast was last updated, but showing it constantly adds clutter. For now it only shows on hover, which might not be obvious enough.</li>
       </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="dot" style="background:var(--c4e)"></span>Before and After</h3>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:1.25rem;">The original Weather.gov forecast page vs. the redesign, side by side. Same data, very different presentation.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div>
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ef4444;margin-bottom:.5rem;">Original — Weather.gov</div>
+          <div style="border-radius:10px;overflow:hidden;border:2px solid #fecaca;">
+            <img src="images/homepage.png" alt="Original Weather.gov" style="width:100%;display:block;"/>
+          </div>
+          <ul style="margin-top:.75rem;font-size:.82rem;color:var(--muted);padding-left:1rem;">
+            <li style="margin-bottom:.3rem;">Two search bars, neither clearly primary</li>
+            <li style="margin-bottom:.3rem;">Map requires knowing your county</li>
+            <li style="margin-bottom:.3rem;">Alert legend at the bottom, out of view</li>
+            <li>No saved locations or personalization</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#10b981;margin-bottom:.5rem;">Redesign</div>
+          <div style="border-radius:10px;overflow:hidden;border:2px solid #bbf7d0;">
+            <img src="images/redesign-mockup.png" alt="Redesigned Weather.gov" style="width:100%;display:block;"/>
+          </div>
+          <ul style="margin-top:.75rem;font-size:.82rem;color:var(--muted);padding-left:1rem;">
+            <li style="margin-bottom:.3rem;">Single search bar with autocomplete + confirmation</li>
+            <li style="margin-bottom:.3rem;">Current conditions visible immediately</li>
+            <li style="margin-bottom:.3rem;">Alert banner pinned at top when active</li>
+            <li>Left nav for quick access to any view</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="dot" style="background:var(--c4e)"></span>How the Design Evolved from the Draft</h3>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:1rem;">The 4D draft focused on the forecast page. Between the draft and this final version, two things were added based on reflection:</p>
+      <div class="tl" style="margin-top:.5rem;">
+        <div class="tl-item">
+          <div class="tl-label">Draft (4D) — Forecast page only</div>
+          <p>The 4D prototype showed the restructured forecast page: card layout, alert banner, hourly strip, weekend highlight. The search flow was described in text but not yet mocked up. The draft proved the layout concept worked, but the entry point to the site was still unresolved.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-label">Added: Search flow screen</div>
+          <p>After reflecting on the user research — where my roommate ended up on the wrong city's forecast — I realized the search experience needed its own redesign, not just the results page. The final version adds an autocomplete search and a location confirmation step as Screen 1, before the forecast page even appears.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-label">Refined: Traceability back to findings</div>
+          <p>In the draft, the design decisions were described but not explicitly tied back to specific heuristic violations or user research moments. The final version makes those connections explicit — each design choice has a documented reason from 4B or 4C. This also helped me notice one gap: the "Get Detailed Info" visibility issue from user research hadn't made it into the draft mockup, so it was added to the final version's button styling.</p>
+        </div>
+      </div>
     </div>
 
     <div class="card">
