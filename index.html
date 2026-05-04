@@ -576,7 +576,7 @@
             <div class="h-name">2. Match Between System & Real World</div>
             <span class="pill pill-red">Poor</span>
           </div>
-          <p>Heavy use of meteorological jargon throughout: QPF, PWAT, SPC Outlooks, ASOS. No inline explanations — the interface assumes a professional audience.</p>
+          <p>Heavy use of meteorological jargon throughout: QPF, PWAT, SPC Outlooks, ASOS. None of it is explained inline — it feels like the site was built for meteorologists, not regular people.</p>
         </div>
         <div class="h-card">
           <div class="h-top">
@@ -661,7 +661,7 @@
 
     <div class="card">
       <h3><span class="dot" style="background:var(--c4b)"></span>Competitive Analysis</h3>
-      <p style="font-size:.88rem; color:var(--muted); margin-bottom:1rem;">Comparing Weather.gov against two functionally equivalent services for general public users.</p>
+      <p style="font-size:.88rem; color:var(--muted); margin-bottom:1rem;">Comparing Weather.gov with two other weather sites that cover the same ground for everyday users.</p>
       <div class="t-wrap">
         <table>
           <thead>
@@ -699,7 +699,7 @@
             </tr>
             <tr>
               <td><strong>Severe Weather Alerts</strong></td>
-              <td class="t-good">Prominent, authoritative, detailed</td>
+              <td>Authoritative and detailed, but hard to find — buried rather than surfaced</td>
               <td>Present but less detailed</td>
               <td>Good visual treatment</td>
             </tr>
@@ -785,7 +785,7 @@
           <strong>Developer links shown to general users (Task 1):</strong> Links such as "Get as KML," "Get as XML," and "National Digital Forecast Database" appeared prominently in the sidebar. My roommate spent a few seconds hovering over them trying to figure out what they were, then just scrolled past. These are tools for pulling raw data feeds — a regular user has no idea what they're for, and they just add clutter.
         </li>
         <li style="margin-bottom:1rem;">
-          <strong>Severe weather alerts — no obvious path (Task 2):</strong> My roommate wasn't sure where to look for alerts. He scrolled around the forecast page for a bit, then tried clicking on the main navigation. He eventually found a small "Active Alerts" link in the sidebar, but said he wouldn't have noticed it if he hadn't been specifically looking. There happened to be no active warnings that day, which made the task harder — there was nothing highlighted or flagged to draw his eye.
+          <strong>Severe weather alerts — no obvious path (Task 2):</strong> My roommate wasn't sure where to look for alerts. He scrolled down the forecast page for a while, then tried clicking around the main navigation at the top. He eventually spotted a small "Active Alerts" link near the bottom of the page, but said he wouldn't have noticed it if he hadn't been specifically looking. There happened to be no active warnings that day, which made it harder — when nothing is active, the page gives no visual indication of where to even check.
         </li>
         <li>
           <strong>Hourly link hard to find (Task 3):</strong> The "Hourly Weather Forecast" link is buried in a list of additional resources at the bottom of the page, styled as a plain text hyperlink among a dozen others. My roommate did not find it without scrolling past the entire forecast. He expected it to be near the top of the page, or reachable via a tab.
@@ -800,7 +800,8 @@
         <li style="margin-bottom:.4rem;"><strong>Links look the same as regular text</strong> — "Get Detailed Info" is a link but nothing about it looks clickable. My roommate almost scrolled past it completely.</li>
         <li style="margin-bottom:.4rem;"><strong>Same forecast shown twice</strong> — the graphical view at the top and the text "Detailed Forecast" below it are the same information in two different formats, with no explanation of why both are there</li>
         <li style="margin-bottom:.4rem;"><strong>Everything crammed into one column</strong> — the forecast itself, KML/XML export links, GPS coordinates, a satellite image, and a dozen administrative links all appear back-to-back with no visual separation. There's no way to tell what's important and what isn't.</li>
-        <li><strong>Hourly forecast is hard to find</strong> — buried at the bottom as a plain text link, right between "Cooperative Observers" and "NOAA Weather Radio." My roommate scrolled straight past it and didn't realize it was there.</li>
+        <li style="margin-bottom:.4rem;"><strong>Hourly forecast is hard to find</strong> — buried at the bottom as a plain text link, right between "Cooperative Observers" and "NOAA Weather Radio." My roommate scrolled straight past it and didn't realize it was there.</li>
+        <li><strong>No obvious way to check current alerts</strong> — the link to active warnings is a small piece of text near the bottom of the page. When there's nothing active, the page gives no signal about where alerts would even show up. My roommate spent a while scrolling before finding it.</li>
       </ul>
     </div>
 
@@ -808,10 +809,10 @@
       <h3><span class="dot" style="background:var(--c4c)"></span>Low-Cost Improvements</h3>
       <ul>
         <li style="margin-bottom:.4rem;">Make "Get Detailed Info" and "Hourly Forecast" visually distinct — use button styling, not plain text links</li>
-        <li style="margin-bottom:.4rem;">Remove duplicate forecast display — choose either graphical or text format as the primary view; offer the other on demand</li>
+        <li style="margin-bottom:.4rem;">Drop the duplicate forecast — just show the icon version by default and let people switch to the text version if they want it</li>
         <li style="margin-bottom:.4rem;">Add a sticky tab bar at the top of the forecast page: <em>Current · Hourly · 7-Day · Radar · Alerts</em></li>
         <li style="margin-bottom:.4rem;">Move developer/technical links (KML, XML, Tabular) to a collapsed "Advanced / Developer Tools" section hidden by default</li>
-        <li>Move administrative links (Cooperative Observers, River Info, NOAA Weather Radio) to the footer rather than the main forecast column</li>
+        <li>Push the administrative stuff — Cooperative Observers, River Info, NOAA Weather Radio — down to the footer where it's out of the way</li>
       </ul>
     </div>
     <div class="pager">
