@@ -597,14 +597,14 @@
             <div class="h-name">5. Error Prevention</div>
             <span class="pill pill-red">Poor</span>
           </div>
-          <p>Location search can silently return the wrong city when names are ambiguous (e.g., "Springfield"). There is no disambiguation step — users can read the wrong forecast without realizing it.</p>
+          <p>Location search can silently return the wrong city when names are ambiguous. It doesn't ask which one you meant — you can end up reading the wrong forecast and not realize it until much later.</p>
         </div>
         <div class="h-card">
           <div class="h-top">
             <div class="h-name">6. Recognition Rather Than Recall</div>
             <span class="pill pill-red">Poor</span>
           </div>
-          <p>Map color codes have no persistent legend on screen. Icon meanings are not labeled. Users must memorize what each element means across visits.</p>
+          <p>Map color codes have no persistent legend on screen. Icon meanings are not labeled. You have to remember what each thing means every time you come back.</p>
         </div>
         <div class="h-card">
           <div class="h-top">
@@ -770,7 +770,7 @@
       <h3><span class="dot" style="background:var(--c4c)"></span>What I Observed</h3>
       <ul style="margin-bottom:.5rem;">
         <li style="margin-bottom:1rem;">
-          <strong>"Get Detailed Info" nearly missed (Task 1):</strong> After reaching the local forecast page for Lincoln, IL, my roommate spent time reading through the long text forecast blocks before noticing the small "Get Detailed Info" link next to the temperature. He almost missed it entirely because it was styled identically to surrounding body text — no visual distinction to suggest it was a clickable action.
+          <strong>"Get Detailed Info" nearly missed (Task 1):</strong> While navigating toward Champaign, he ended up on the local forecast page for Lincoln, IL — a different city about 70 miles away — without any warning from the site. The homepage uses a county-click map that makes it easy to land on the wrong county without realizing it. Once on the page, he spent time reading through the long text forecast blocks before noticing the small "Get Detailed Info" link next to the temperature. He almost missed it entirely because it was styled identically to surrounding body text — no visual distinction to suggest it was a clickable action.
           <div class="quote">"Oh wait, there's a link here? It's so small — I almost didn't see it."</div>
         </li>
         <li style="margin-bottom:1rem;">
@@ -782,7 +782,7 @@
           <div class="quote">"There's so much stuff going on. I don't know what I'm supposed to be looking at."</div>
         </li>
         <li style="margin-bottom:1rem;">
-          <strong>Technical links irrelevant to the user (Task 1):</strong> Links such as "Get as KML," "Get as XML," and "National Digital Forecast Database" appeared prominently in the sidebar. My roommate hovered over them, confused about what they meant, before moving on. These are data-export tools for developers — they have no value for a general user and add visual noise.
+          <strong>Developer links shown to general users (Task 1):</strong> Links such as "Get as KML," "Get as XML," and "National Digital Forecast Database" appeared prominently in the sidebar. My roommate hovered over them, confused about what they meant, before moving on. These are data-export tools for developers — they have no value for a general user and add visual noise.
         </li>
         <li>
           <strong>Hourly link hard to find (Task 3):</strong> The "Hourly Weather Forecast" link is buried in a list of additional resources at the bottom of the page, styled as a plain text hyperlink among a dozen others. My roommate did not find it without scrolling past the entire forecast. He expected it to be near the top of the page, or reachable via a tab.
@@ -855,7 +855,7 @@
         </div>
         <div class="tl-item">
           <div class="tl-label">Added the details from user research</div>
-          <p>After watching my roommate use the site, I added a location confirmation step after search, highlighted weekends in the 7-day strip, and replaced the hourly table with a horizontal scroll strip — which is what most weather apps use and feels a lot more natural on a phone.</p>
+          <p>After watching my roommate use the site, I added the weekend highlight and replaced the hourly table with a horizontal scroll strip — which is what most weather apps use and feels a lot more natural on a phone. I also wrote down the idea for a location confirmation step to catch wrong-city errors, but turning that into an actual screen happened in the final version rather than at this stage.</p>
         </div>
       </div>
     </div>
@@ -979,7 +979,7 @@
     <div class="card">
       <h3><span class="dot" style="background:var(--c4e)"></span>What Changed and Why</h3>
       <ul>
-        <li style="margin-bottom:.5rem;"><strong>Search confirmation step:</strong> After you type a city, the site now asks "Is this right?" before showing the forecast — this directly fixes the wrong-city problem my roommate ran into</li>
+        <li style="margin-bottom:.5rem;"><strong>Search confirmation step:</strong> After entering a location, the redesign asks "Is this the right place?" before loading — this is meant to catch the wrong-county problem my roommate ran into, where a misclick on the map sent him to Lincoln, IL when he was looking for Champaign</li>
         <li style="margin-bottom:.5rem;"><strong>Card layout with left nav:</strong> Instead of one long scrollable column, the page is split into sections you can jump to — Current, Hourly, 7-Day, Radar, Alerts</li>
         <li style="margin-bottom:.5rem;"><strong>Alert banner at the top:</strong> Active severe weather alerts now appear as a red banner you can't miss, instead of somewhere in the middle of the page</li>
         <li style="margin-bottom:.5rem;"><strong>Weekend highlight in 7-day view:</strong> Saturday and Sunday have a different background color so you don't have to count days</li>
@@ -1038,7 +1038,7 @@
         </div>
         <div class="tl-item">
           <div class="tl-label">Added: Search flow screen</div>
-          <p>After reflecting on the user research — where my roommate ended up on the wrong city's forecast — I realized the search experience needed its own redesign, not just the results page. The final version adds an autocomplete search and a location confirmation step as Screen 1, before the forecast page even appears.</p>
+          <p>After reflecting on the user research — where my roommate clicked the wrong county on the map and ended up on Lincoln, IL's forecast without realizing it — I realized the entry point to the site needed its own redesign, not just the results page. The final version adds an autocomplete search and a location confirmation step as Screen 1, before the forecast page even appears.</p>
         </div>
         <div class="tl-item">
           <div class="tl-label">Refined: Traceability back to findings</div>
@@ -1056,7 +1056,7 @@
         <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.08);">
           <img src="images/redesign-search.png" alt="Redesigned search and location confirmation flow" style="width:100%;display:block;"/>
         </div>
-        <p style="font-size:.83rem;color:var(--muted);margin-top:.75rem;">Left: autocomplete that shows city, state, and county together, so you can tell apart places with the same name before clicking. Right: a confirmation step before the forecast loads. During user research, my roommate ended up on Lincoln, IL's forecast page after searching for weather in the area — this step would catch that kind of mismatch.</p>
+        <p style="font-size:.83rem;color:var(--muted);margin-top:.75rem;">Left: autocomplete that shows city, state, and county together, so you can tell apart places with the same name before clicking. Right: a confirmation step before the forecast loads. During user research, my roommate navigated to Lincoln, IL's forecast page when he was trying to get to Champaign — the county-click map on the homepage is easy to misclick. This confirmation step would catch that kind of mismatch before the forecast even loads.</p>
       </div>
 
       <div>
