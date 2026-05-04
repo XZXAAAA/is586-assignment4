@@ -475,7 +475,7 @@
 
     <div class="card">
       <h3><span class="dot" style="background:var(--c4a)"></span>What is Weather.gov?</h3>
-      <p>Weather.gov is the official website of the U.S. National Weather Service, run by NOAA. It covers forecasts, alerts, radar, and climate data for the whole country — no ads, no paywalls. It's also the data source that most commercial weather apps pull from. Despite that, using the site directly is often a frustrating experience, and it's been called out for years as one of the more confusing government websites out there.</p>
+      <p>Weather.gov is the official website of the U.S. National Weather Service, run by NOAA. It covers forecasts, alerts, radar, and climate data for the whole country — no ads, no paywalls. It's also the primary data source behind a lot of the commercial weather apps people actually use. Despite that, using the site directly is often a frustrating experience, and it's been called out for years as one of the more confusing government websites out there.</p>
     </div>
 
     <div class="card">
@@ -611,7 +611,7 @@
             <div class="h-name">7. Flexibility and Efficiency of Use</div>
             <span class="pill pill-red">Poor</span>
           </div>
-          <p>No way to save a location, no shortcuts, nothing carries over between visits. Someone who checks the site every day gets the same experience as someone using it for the first time.</p>
+          <p>No way to save a location, no shortcuts, nothing carries over between visits. If you use the site every day, it still treats you like a first-time visitor — there's no memory of where you've been or what you usually look for.</p>
         </div>
         <div class="h-card">
           <div class="h-top">
@@ -726,7 +726,7 @@
       </div>
       <div class="insight">
         <div class="i-label">Key Insight</div>
-        <p>What stood out most from this comparison: Weather.gov actually has better data than its competitors — or at least equally good data, since Weather.com and others pull from the same NWS source anyway. But both Weather.com and AccuWeather are much easier to use for everyday tasks. The problem isn't what the site has, it's how it chooses to show it. Everything is presented at once with equal priority, which makes it hard to find what you actually came for.</p>
+        <p>What stood out most: Weather.gov is the official government source, and Weather.com at least partly draws from NWS data — AccuWeather runs its own model. But for the average person checking the weekend forecast, the data quality differences don't really matter. What matters is that both Weather.com and AccuWeather are much easier to use. The gap isn't in what the site has — it's that everything gets dumped on screen at once with no sense of what to look at first.</p>
       </div>
     </div>
     <div class="pager">
@@ -782,7 +782,7 @@
           <div class="quote">"There's so much stuff going on. I don't know what I'm supposed to be looking at."</div>
         </li>
         <li style="margin-bottom:1rem;">
-          <strong>Developer links shown to general users (Task 1):</strong> Links such as "Get as KML," "Get as XML," and "National Digital Forecast Database" appeared prominently in the sidebar. My roommate hovered over them, confused about what they meant, before moving on. These are data-export tools for developers — they have no value for a general user and add visual noise.
+          <strong>Developer links shown to general users (Task 1):</strong> Links such as "Get as KML," "Get as XML," and "National Digital Forecast Database" appeared prominently in the sidebar. My roommate spent a few seconds hovering over them trying to figure out what they were, then just scrolled past. These are tools for pulling raw data feeds — a regular user has no idea what they're for, and they just add clutter.
         </li>
         <li>
           <strong>Hourly link hard to find (Task 3):</strong> The "Hourly Weather Forecast" link is buried in a list of additional resources at the bottom of the page, styled as a plain text hyperlink among a dozen others. My roommate did not find it without scrolling past the entire forecast. He expected it to be near the top of the page, or reachable via a tab.
@@ -798,7 +798,7 @@
         <li style="margin-bottom:.4rem;"><strong>Same forecast shown twice</strong> — the graphical view at the top and the text "Detailed Forecast" below it are the same information in two different formats, with no explanation of why both are there</li>
         <li style="margin-bottom:.4rem;"><strong>Everything mixed together</strong> — the actual forecast, developer export links, coordinates, a satellite image, and a dozen administrative links all appear in the same column with nothing separating them</li>
         <li style="margin-bottom:.4rem;"><strong>Hourly forecast is hard to find</strong> — it's listed as a plain text link buried near the bottom, right next to unrelated things like "Cooperative Observers" and "NOAA Weather Radio"</li>
-        <li><strong>Technical data shown to everyone</strong> — things like GPS coordinates, elevation in feet, and "Get as KML / Get as XML" links show up on the regular forecast page. My roommate hovered over them, confused, before moving on.</li>
+        <li><strong>Developer tools mixed in with everything else</strong> — "Get as KML," "Get as XML," GPS coordinates, elevation — these show up right in the main forecast column. My roommate had no idea what any of it meant.</li>
       </ul>
     </div>
 
@@ -872,7 +872,7 @@
           <div class="proto-thumb pt-a">① Location Search</div>
           <div class="proto-body">
             <h4>Improved Location Search</h4>
-            <p>Autocomplete with state labels. Confirmation step before loading forecast — prevents silent wrong-city errors observed in user study.</p>
+            <p>One clear search bar with autocomplete, replacing the two confusing bars on the current homepage. A location confirmation step was identified as needed at this stage but not yet built into a screen — that came in the final version.</p>
           </div>
         </div>
         <div class="proto-card">
@@ -926,8 +926,8 @@
           </thead>
           <tbody>
             <tr>
-              <td>Search returns wrong city without warning</td>
-              <td>4B — Heuristic #5 (Error Prevention)</td>
+              <td>Easy to end up on the wrong city — ambiguous search and a county map that's easy to misclick</td>
+              <td>4B — Heuristic #5 (Error Prevention) + 4C User Research</td>
               <td>Added location confirmation step before forecast loads</td>
             </tr>
             <tr>
@@ -991,7 +991,7 @@
     <div class="card">
       <h3><span class="dot" style="background:var(--c4e)"></span>Things I'm Still Not Sure About</h3>
       <ul>
-        <li style="margin-bottom:.5rem;"><strong>Hiding technical data:</strong> Moving expert-level content out of the default view might frustrate meteorologists who rely on the site for detailed information. I added an "Expert Mode" toggle as a workaround, but I haven't tested whether that's actually enough.</li>
+        <li style="margin-bottom:.5rem;"><strong>Hiding technical data:</strong> Moving expert-level content out of the default view might frustrate meteorologists or emergency managers who actually rely on things like the Forecast Discussion or tabular data. The redesign tucks these into a collapsed section, but I haven't tested whether that's good enough for users who need them regularly.</li>
         <li style="margin-bottom:.5rem;"><strong>Government site constraints:</strong> Federal websites have to follow accessibility rules (Section 508) and often a design system called USWDS. Some of my visual choices might not be compatible with those — that would need more checking before this could go live.</li>
         <li><strong>Data freshness indicators:</strong> I wanted to show when the forecast was last updated, but showing it constantly adds clutter. For now it only shows on hover, which might not be obvious enough.</li>
       </ul>
