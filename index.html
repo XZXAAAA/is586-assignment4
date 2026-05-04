@@ -774,15 +774,18 @@
           <div class="quote">"Oh wait, there's a link here? It's so small — I almost didn't see it."</div>
         </li>
         <li style="margin-bottom:1rem;">
-          <strong>Forecast content repeated twice (Task 1):</strong> The page shows an extended graphical forecast (icon + temperature) at the top, followed immediately by a full-text "Detailed Forecast" section that contains exactly the same information in paragraph form. My roommate read through both before realizing they were duplicates. This consumed extra time and added confusion about which version to trust.
+          <strong>Forecast content repeated twice (Task 1):</strong> The page shows an extended graphical forecast (icon + temperature) at the top, followed immediately by a full-text "Detailed Forecast" section that covers the same days in paragraph form. My roommate read through both before realizing they were duplicates — he wasted a few minutes on it and seemed unsure which one was the "real" forecast.
           <div class="quote">"Wait, is this the same thing? Why is it listed twice?"</div>
         </li>
         <li style="margin-bottom:1rem;">
-          <strong>Information overload — mixed content types (all tasks):</strong> The forecast page combined the weather forecast, a live map, 15+ supplementary links (Zone Area Forecast, Forecast Discussion, Printable Forecast, Text Only Forecast, Tabular Forecast, Air Quality Forecasts, Get as KML, Get as XML, Cooperative Observers, River Info, NOAA Weather Radio…), technical metadata (coordinates, elevation, update timestamps), and a satellite/radar image — all in one unstructured column. My roommate remarked on this throughout the session.
+          <strong>Too much mixed together (all tasks):</strong> The forecast page had the weather forecast, a live radar map, satellite image, GPS coordinates, elevation, update timestamps, and a long list of extra links — Zone Area Forecast, Forecast Discussion, Printable Forecast, Tabular Forecast, River Info, NOAA Weather Radio, and more — all in the same column with nothing separating them. My roommate kept losing track of where the actual forecast was.
           <div class="quote">"There's so much stuff going on. I don't know what I'm supposed to be looking at."</div>
         </li>
         <li style="margin-bottom:1rem;">
           <strong>Developer links shown to general users (Task 1):</strong> Links such as "Get as KML," "Get as XML," and "National Digital Forecast Database" appeared prominently in the sidebar. My roommate spent a few seconds hovering over them trying to figure out what they were, then just scrolled past. These are tools for pulling raw data feeds — a regular user has no idea what they're for, and they just add clutter.
+        </li>
+        <li style="margin-bottom:1rem;">
+          <strong>Severe weather alerts — no obvious path (Task 2):</strong> My roommate wasn't sure where to look for alerts. He scrolled around the forecast page for a bit, then tried clicking on the main navigation. He eventually found a small "Active Alerts" link in the sidebar, but said he wouldn't have noticed it if he hadn't been specifically looking. There happened to be no active warnings that day, which made the task harder — there was nothing highlighted or flagged to draw his eye.
         </li>
         <li>
           <strong>Hourly link hard to find (Task 3):</strong> The "Hourly Weather Forecast" link is buried in a list of additional resources at the bottom of the page, styled as a plain text hyperlink among a dozen others. My roommate did not find it without scrolling past the entire forecast. He expected it to be near the top of the page, or reachable via a tab.
@@ -796,9 +799,8 @@
       <ul>
         <li style="margin-bottom:.4rem;"><strong>Links look the same as regular text</strong> — "Get Detailed Info" is a link but nothing about it looks clickable. My roommate almost scrolled past it completely.</li>
         <li style="margin-bottom:.4rem;"><strong>Same forecast shown twice</strong> — the graphical view at the top and the text "Detailed Forecast" below it are the same information in two different formats, with no explanation of why both are there</li>
-        <li style="margin-bottom:.4rem;"><strong>Everything mixed together</strong> — the actual forecast, developer export links, coordinates, a satellite image, and a dozen administrative links all appear in the same column with nothing separating them</li>
-        <li style="margin-bottom:.4rem;"><strong>Hourly forecast is hard to find</strong> — it's listed as a plain text link buried near the bottom, right next to unrelated things like "Cooperative Observers" and "NOAA Weather Radio"</li>
-        <li><strong>Developer tools mixed in with everything else</strong> — "Get as KML," "Get as XML," GPS coordinates, elevation — these show up right in the main forecast column. My roommate had no idea what any of it meant.</li>
+        <li style="margin-bottom:.4rem;"><strong>Everything crammed into one column</strong> — the forecast itself, KML/XML export links, GPS coordinates, a satellite image, and a dozen administrative links all appear back-to-back with no visual separation. There's no way to tell what's important and what isn't.</li>
+        <li><strong>Hourly forecast is hard to find</strong> — buried at the bottom as a plain text link, right between "Cooperative Observers" and "NOAA Weather Radio." My roommate scrolled straight past it and didn't realize it was there.</li>
       </ul>
     </div>
 
@@ -981,7 +983,7 @@
       <ul>
         <li style="margin-bottom:.5rem;"><strong>Search confirmation step:</strong> After entering a location, the redesign asks "Is this the right place?" before loading — this is meant to catch the wrong-county problem my roommate ran into, where a misclick on the map sent him to Lincoln, IL when he was looking for Champaign</li>
         <li style="margin-bottom:.5rem;"><strong>Card layout with left nav:</strong> Instead of one long scrollable column, the page is split into sections you can jump to — Current, Hourly, 7-Day, Radar, Alerts</li>
-        <li style="margin-bottom:.5rem;"><strong>Alert banner at the top:</strong> Active severe weather alerts now appear as a red banner you can't miss, instead of somewhere in the middle of the page</li>
+        <li style="margin-bottom:.5rem;"><strong>Alert banner at the top:</strong> Active severe weather alerts now appear as a red banner at the very top — instead of being buried at the bottom of the page where you'd only find it if you were already scrolling</li>
         <li style="margin-bottom:.5rem;"><strong>Weekend highlight in 7-day view:</strong> Saturday and Sunday have a different background color so you don't have to count days</li>
         <li style="margin-bottom:.5rem;"><strong>Horizontal hourly strip:</strong> Replaces the dense table with a swipeable row — basically what every phone weather app uses</li>
         <li><strong>Technical links moved or hidden:</strong> KML exports, XML feeds, tabular data — still there, but tucked away so they don't confuse people who don't need them</li>
@@ -993,7 +995,7 @@
       <ul>
         <li style="margin-bottom:.5rem;"><strong>Hiding technical data:</strong> Moving expert-level content out of the default view might frustrate meteorologists or emergency managers who actually rely on things like the Forecast Discussion or tabular data. The redesign tucks these into a collapsed section, but I haven't tested whether that's good enough for users who need them regularly.</li>
         <li style="margin-bottom:.5rem;"><strong>Government site constraints:</strong> Federal websites have to follow accessibility rules (Section 508) and often a design system called USWDS. Some of my visual choices might not be compatible with those — that would need more checking before this could go live.</li>
-        <li><strong>Data freshness indicators:</strong> I wanted to show when the forecast was last updated, but showing it constantly adds clutter. For now it only shows on hover, which might not be obvious enough.</li>
+        <li><strong>Data freshness indicators:</strong> I moved the update timestamp into the location card at the top so it's visible without scrolling. But I'm not sure it's prominent enough there — it could still be easy to overlook if you're not looking for it.</li>
       </ul>
     </div>
 
@@ -1042,7 +1044,7 @@
         </div>
         <div class="tl-item">
           <div class="tl-label">Refined: Traceability back to findings</div>
-          <p>In the draft, the design decisions were described but not explicitly tied back to specific heuristic violations or user research moments. The final version makes those connections explicit — each design choice has a documented reason from 4B or 4C. This also helped me notice one gap: the "Get Detailed Info" visibility issue from user research hadn't made it into the draft mockup, so it was added to the final version's button styling.</p>
+          <p>Looking back at the draft, I realized I'd written down a bunch of design decisions without clearly saying where they came from. So for the final version I went back and matched each change to the specific heuristic or user research moment that motivated it. That process also surfaced one thing I'd missed: the "Get Detailed Info" link being invisible had come up during user research but never made it into the mockup. I went back and added distinct button styling for it in the final version.</p>
         </div>
       </div>
     </div>
