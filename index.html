@@ -475,7 +475,7 @@
 
     <div class="card">
       <h3><span class="dot" style="background:var(--c4a)"></span>What is Weather.gov?</h3>
-      <p>Weather.gov is the official website of the U.S. National Weather Service, run by NOAA. It covers forecasts, alerts, radar, and climate data for the whole country — no ads, no paywalls. It's also the primary data source behind a lot of the commercial weather apps people actually use. Despite that, using the site directly is often a frustrating experience, and it's been called out for years as one of the more confusing government websites out there.</p>
+      <p>Weather.gov is the official website of the U.S. National Weather Service, run by NOAA. It covers forecasts, alerts, radar, and climate data for the whole country — no ads, no paywalls. Services like Weather.com pull from NWS data, so in a way Weather.gov is the source behind a lot of what those apps show. Despite that, using the site directly is often a frustrating experience, and it has a reputation as one of the more confusing government websites around.</p>
     </div>
 
     <div class="card">
@@ -625,14 +625,14 @@
             <div class="h-name">9. Help Users Recover from Errors</div>
             <span class="pill pill-yellow">Fair</span>
           </div>
-          <p>Failed searches show a generic error message with little guidance — no suggestion to try a ZIP code instead of a city name, no nearby suggestions.</p>
+          <p>When a search fails, you get a generic error page with no help — it doesn't suggest trying a ZIP code, and there are no alternative results shown nearby.</p>
         </div>
         <div class="h-card">
           <div class="h-top">
             <div class="h-name">10. Help and Documentation</div>
             <span class="pill pill-yellow">Fair</span>
           </div>
-          <p>There is a glossary on the site, but you have to go find it separately. Nothing on the forecast page explains what the terms mean right where you're reading them.</p>
+          <p>The site has a glossary somewhere, but you have to go hunt for it. Nothing on the forecast page explains what the terms mean in context — you're just expected to already know.</p>
         </div>
       </div>
     </div>
@@ -782,7 +782,7 @@
           <div class="quote">"There's so much stuff going on. I don't know what I'm supposed to be looking at."</div>
         </li>
         <li style="margin-bottom:1rem;">
-          <strong>Developer links shown to general users (Task 1):</strong> Links such as "Get as KML," "Get as XML," and "National Digital Forecast Database" appeared prominently in the sidebar. My roommate spent a few seconds hovering over them trying to figure out what they were, then just scrolled past. These are tools for pulling raw data feeds — a regular user has no idea what they're for, and they just add clutter.
+          <strong>Developer links shown to general users (Task 1):</strong> Links such as "Get as KML," "Get as XML," and "National Digital Forecast Database" appeared prominently in the sidebar. My roommate spent a few seconds hovering over them trying to figure out what they were, then just scrolled past. These are tools for pulling raw data feeds — my roommate had no idea what any of them did, and they just added to the clutter.
         </li>
         <li style="margin-bottom:1rem;">
           <strong>Severe weather alerts — no obvious path (Task 2):</strong> My roommate wasn't sure where to look for alerts. He scrolled down the forecast page for a while, then tried clicking around the main navigation at the top. He eventually spotted a small "Active Alerts" link near the bottom of the page, but said he wouldn't have noticed it if he hadn't been specifically looking. There happened to be no active warnings that day, which made it harder — when nothing is active, the page gives no visual indication of where to even check.
@@ -872,10 +872,10 @@
 
       <div class="proto-grid">
         <div class="proto-card">
-          <div class="proto-thumb pt-a">① Location Search</div>
+          <div class="proto-thumb pt-a" style="font-size:.72rem;">① Search (concept only)</div>
           <div class="proto-body">
-            <h4>Improved Location Search</h4>
-            <p>One clear search bar with autocomplete, replacing the two confusing bars on the current homepage. A location confirmation step was identified as needed at this stage but not yet built into a screen — that came in the final version.</p>
+            <h4>Location Search — Concept</h4>
+            <p>Identified as a problem at this stage: the homepage has two ambiguous search bars and a county-click map. The fix — one autocomplete bar with a confirmation step — was written down but not yet built into a screen. That screen came in the final version.</p>
           </div>
         </div>
         <div class="proto-card">
@@ -959,8 +959,8 @@
               <td>Weekend days highlighted with a different background color</td>
             </tr>
             <tr>
-              <td>Severe weather alerts not visible without scrolling</td>
-              <td>4B — Heuristic #1 (Visibility of System Status)</td>
+              <td>Severe weather alerts not visible without scrolling — my roommate struggled to find the alerts link in Task 2</td>
+              <td>4B — Heuristic #1 (Visibility of System Status) + 4C User Research</td>
               <td>Full-width alert banner pinned at top of page when active</td>
             </tr>
             <tr>
@@ -976,7 +976,7 @@
     <div class="card">
       <h3><span class="dot" style="background:var(--c4e)"></span>What I Was Trying to Fix</h3>
       <p>When I look at how people actually use Weather.gov, most of them just want to know two or three things: what's the weather now, what's it going to be this weekend, and is there anything dangerous coming. The current site doesn't really prioritize any of that — everything gets equal space on the page regardless of whether it's something a regular person cares about or a data export link for developers.</p>
-      <p style="margin-top:.75rem;">My redesign tries to answer those common questions up front, and push the less common stuff (like technical charts and raw data links) out of the way. I didn't want to remove anything, just reorganize by what people are most likely to actually need.</p>
+      <p style="margin-top:.75rem;">My redesign tries to answer those common questions first, and push things like technical charts and raw data links out of the default view. I didn't want to delete anything — just stop treating a KML export link as equally important as Saturday's temperature.</p>
     </div>
 
     <div class="card">
@@ -1002,7 +1002,7 @@
 
     <div class="card">
       <h3><span class="dot" style="background:var(--c4e)"></span>Before and After</h3>
-      <p style="font-size:.88rem;color:var(--muted);margin-bottom:1.25rem;">The original Weather.gov forecast page vs. the redesign, side by side. Same data, very different presentation.</p>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:1.25rem;">The original Weather.gov homepage vs. the redesigned forecast page — the same starting point and destination, handled very differently.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
         <div>
           <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ef4444;margin-bottom:.5rem;">Original — Weather.gov</div>
