@@ -604,7 +604,7 @@
             <div class="h-name">6. Recognition Rather Than Recall</div>
             <span class="pill pill-red">Poor</span>
           </div>
-          <p>Map color codes have no persistent legend on screen. Icon meanings are not labeled. You have to remember what each thing means every time you come back.</p>
+          <p>The alert color codes on the map have no persistent legend on screen — you have to scroll to the bottom to find out what the colors mean. You end up having to remember it from visit to visit.</p>
         </div>
         <div class="h-card">
           <div class="h-top">
@@ -745,7 +745,7 @@
 
     <div class="card">
       <h3><span class="dot" style="background:var(--c4c)"></span>Study Setup</h3>
-      <p>I asked my roommate to try using Weather.gov while I watched. He uses weather apps on his phone regularly but had never been to Weather.gov before. I asked him to talk through what he was thinking as he went, and I took notes on where he got stuck, what he clicked, and anything he said. The whole thing took about 15 minutes.</p>
+      <p>I asked my roommate to try using Weather.gov while I watched, using a think-aloud approach — he narrated what he was looking at and what he expected to happen as he went. He uses weather apps on his phone regularly but had never been to Weather.gov before. I took notes on where he got stuck, what he clicked, and anything he said out loud. The whole session took about 15 minutes.</p>
     </div>
 
     <div class="card">
@@ -770,7 +770,7 @@
       <h3><span class="dot" style="background:var(--c4c)"></span>What I Observed</h3>
       <ul style="margin-bottom:.5rem;">
         <li style="margin-bottom:1rem;">
-          <strong>"Get Detailed Info" nearly missed (Task 1):</strong> While navigating toward Champaign, he ended up on the local forecast page for Lincoln, IL — a different city about 70 miles away — without any warning from the site. The homepage uses a county-click map that makes it easy to land on the wrong county without realizing it. Once on the page, he spent time reading through the long text forecast blocks before noticing the small "Get Detailed Info" link next to the temperature. He almost missed it entirely because it was styled identically to surrounding body text — no visual distinction to suggest it was a clickable action.
+          <strong>"Get Detailed Info" nearly missed (Task 1):</strong> While navigating toward Champaign, he ended up on the local forecast page for Lincoln, IL — a different city about 70 miles away — without any warning from the site. The homepage uses a county-click map that makes it easy to land on the wrong county without realizing it. Once on the page, he spent time reading through the long text forecast blocks before noticing the small "Get Detailed Info" link next to the temperature. He almost missed it entirely — it was styled identically to the surrounding body text, so there was nothing about it that looked like a link.
           <div class="quote">"Oh wait, there's a link here? It's so small — I almost didn't see it."</div>
         </li>
         <li style="margin-bottom:1rem;">
@@ -782,7 +782,7 @@
           <div class="quote">"There's so much stuff going on. I don't know what I'm supposed to be looking at."</div>
         </li>
         <li style="margin-bottom:1rem;">
-          <strong>Developer links shown to general users (Task 1):</strong> Links such as "Get as KML," "Get as XML," and "National Digital Forecast Database" appeared prominently in the sidebar. My roommate spent a few seconds hovering over them trying to figure out what they were, then just scrolled past. These are tools for pulling raw data feeds — my roommate had no idea what any of them did, and they just added to the clutter.
+          <strong>Developer links shown to general users (Task 1):</strong> Links such as "Get as KML," "Get as XML," and "National Digital Forecast Database" were mixed right into the main forecast column. My roommate spent a few seconds hovering over them trying to figure out what they were, then just scrolled past. These are tools for pulling raw data feeds — my roommate had no idea what any of them did, and they just added to the clutter.
         </li>
         <li style="margin-bottom:1rem;">
           <strong>Severe weather alerts — no obvious path (Task 2):</strong> My roommate wasn't sure where to look for alerts. He scrolled down the forecast page for a while, then tried clicking around the main navigation at the top. He eventually spotted a small "Active Alerts" link near the bottom of the page, but said he wouldn't have noticed it if he hadn't been specifically looking. There happened to be no active warnings that day, which made it harder — when nothing is active, the page gives no visual indication of where to even check.
@@ -797,7 +797,7 @@
     <div class="card">
       <h3><span class="dot" style="background:var(--c4c)"></span>Problems I Noticed</h3>
       <ul>
-        <li style="margin-bottom:.4rem;"><strong>Links look the same as regular text</strong> — "Get Detailed Info" is a link but nothing about it looks clickable. My roommate almost scrolled past it completely.</li>
+        <li style="margin-bottom:.4rem;"><strong>Links look the same as regular text</strong> — "Get Detailed Info" is a link but nothing about it looks clickable. My roommate almost scrolled straight past it.</li>
         <li style="margin-bottom:.4rem;"><strong>Same forecast shown twice</strong> — the graphical view at the top and the text "Detailed Forecast" below it are the same information in two different formats, with no explanation of why both are there</li>
         <li style="margin-bottom:.4rem;"><strong>Everything crammed into one column</strong> — the forecast itself, KML/XML export links, GPS coordinates, a satellite image, and a dozen administrative links all appear back-to-back with no visual separation. There's no way to tell what's important and what isn't.</li>
         <li style="margin-bottom:.4rem;"><strong>Hourly forecast is hard to find</strong> — buried at the bottom as a plain text link, right between "Cooperative Observers" and "NOAA Weather Radio." My roommate scrolled straight past it and didn't realize it was there.</li>
@@ -1002,7 +1002,7 @@
 
     <div class="card">
       <h3><span class="dot" style="background:var(--c4e)"></span>Before and After</h3>
-      <p style="font-size:.88rem;color:var(--muted);margin-bottom:1.25rem;">The original Weather.gov homepage vs. the redesigned forecast page — the same starting point and destination, handled very differently.</p>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:1.25rem;">Left: the original Weather.gov homepage, where you start. Right: the redesigned forecast page, where you end up. Same information goal, very different experience.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
         <div>
           <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ef4444;margin-bottom:.5rem;">Original — Weather.gov</div>
@@ -1037,11 +1037,11 @@
       <div class="tl" style="margin-top:.5rem;">
         <div class="tl-item">
           <div class="tl-label">Draft (4D) — Forecast page only</div>
-          <p>The 4D prototype showed the restructured forecast page: card layout, alert banner, hourly strip, weekend highlight. The search flow was described in text but not yet mocked up. The draft proved the layout concept worked, but the entry point to the site was still unresolved.</p>
+          <p>The 4D prototype showed the restructured forecast page: card layout, alert banner, hourly strip, weekend highlight. The search flow was written down as a goal but not yet built into a screen. The draft showed the layout concept could work, but how someone actually gets to the forecast in the first place was still unaddressed.</p>
         </div>
         <div class="tl-item">
           <div class="tl-label">Added: Search flow screen</div>
-          <p>After reflecting on the user research — where my roommate clicked the wrong county on the map and ended up on Lincoln, IL's forecast without realizing it — I realized the entry point to the site needed its own redesign, not just the results page. The final version adds an autocomplete search and a location confirmation step as Screen 1, before the forecast page even appears.</p>
+          <p>After reflecting on the user research — where my roommate clicked the wrong county on the map and ended up on Lincoln, IL's forecast without realizing it — I realized the search and navigation experience needed its own redesign, not just the results page. The final version adds an autocomplete search and a location confirmation step as Screen 1, before the forecast page even appears.</p>
         </div>
         <div class="tl-item">
           <div class="tl-label">Refined: Traceability back to findings</div>
@@ -1067,7 +1067,7 @@
         <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.08);">
           <img src="images/redesign-mockup.png" alt="Redesigned forecast page" style="width:100%;display:block;"/>
         </div>
-        <p style="font-size:.83rem;color:var(--muted);margin-top:.75rem;">Restructured forecast page with a persistent alert banner, current conditions sidebar, left navigation, horizontal hourly strip, and a 7-day view that highlights weekends in purple. Developer links (KML, XML, tabular data) have been removed from the main view entirely.</p>
+        <p style="font-size:.83rem;color:var(--muted);margin-top:.75rem;">The forecast page is restructured around a left navigation bar (Today / Hourly / 7-Day / Radar / Alerts), a current conditions card, and an alert banner that only appears when something is actually active. The 7-day strip highlights weekends in purple. KML, XML, and tabular export links are collapsed out of the default view.</p>
       </div>
     </div>
     <div class="pager">
